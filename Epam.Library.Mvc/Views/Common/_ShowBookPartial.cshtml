@@ -1,0 +1,30 @@
+﻿@model Book
+
+Идентификационный номер в базе данных: @Model.Id
+<br />
+Год издания: @Model.YearOfPublishing
+<br />
+Издатель: @Model.Publisher.PublisherName
+<br />
+Количество страниц: @Model.NumberOfPages
+<br />
+Заметка: @Model.Note
+<br />
+Название книги: @Model.Name
+<br />
+ISBN: @Model.ISBN
+<br />
+Город идзания: @Model.CityOfPublishing
+<br />
+Авторы:
+<br />
+@foreach(var item in Model.Authors)
+{
+    @:Ид @item.Id 
+    <br />
+    @:Имя @item.FirstName
+    <br />
+    @:Фамилия @item.LastName
+<br />
+<br />
+}

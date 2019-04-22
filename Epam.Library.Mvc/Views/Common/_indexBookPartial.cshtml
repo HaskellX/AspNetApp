@@ -1,0 +1,13 @@
+﻿@model Entities.Book
+<th>@Html.ActionLink(Model.Name.ToString(), "Item", new {id = Model.Id}, null)</th>
+<th>
+    @foreach (Author author in Model.Authors)
+    {
+        @author.FirstName.Substring(0, 1);
+        <text>. </text>
+        @author.LastName;
+        <text> - </text>
+}
+</th>
+<th>@(Model.ISBN ?? string.Empty)</th>
+<th>@Model.NumberOfPages</th>

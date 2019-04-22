@@ -1,0 +1,31 @@
+﻿@model Patent
+
+Идентификационный номер патента в БД: @Model.Id
+<br/>
+Страна издания патента: @Model.Country
+<br />
+Дата публикации патента: @Model.DateOfPublication
+<br />
+Название патента: @Model.Name
+<br />
+Заметка: @Model.Note
+<br />
+Количество страниц: @Model.NumberOfPages
+<br />
+Регистрационный номер: @Model.RegNumber
+<br />
+Дата подачи документов: @Model.SubmissionDocuments
+<br />
+Авторы:
+<br />
+@foreach (var item in Model.Authors)
+{
+    @:Ид @item.Id
+    <br />
+    @:Имя @item.FirstName
+    <br />
+    @:Фамилия @item.LastName
+    <br />
+    <br />
+<br />
+}

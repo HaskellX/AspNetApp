@@ -1,0 +1,27 @@
+﻿<div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Admin issues
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        @Html.ActionLink("Книга", "Create", "Book")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Патент", "Create", "Patent")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Газетный выпуск", "Create", "PaperIssue")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Авторы", "Add", "Author")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Пользователи системы", "Index", "User")
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>

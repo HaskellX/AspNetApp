@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88307210-4C75-4C40-AFD5-99C79CCA66E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Business_Logic_Layer</RootNamespace>
+    <AssemblyName>Business Logic Layer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DalAccess.cs" />
+    <Compile Include="Logic\AuthorLogic.cs" />
+    <Compile Include="Logic\BookLogic.cs" />
+    <Compile Include="Logic\CommonAccess.cs" />
+    <Compile Include="Logic\FilteredAccessLogic.cs" />
+    <Compile Include="Logic\PaperIssueLogic.cs" />
+    <Compile Include="Logic\PaperLogic.cs" />
+    <Compile Include="Logic\PatentLogic.cs" />
+    <Compile Include="Logic\PublisherLogic.cs" />
+    <Compile Include="Logic\UserLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators.cs" />
+    <Compile Include="validator\AuthorValidator.cs" />
+    <Compile Include="validator\BookValidator.cs" />
+    <Compile Include="validator\PaperIssueValidator.cs" />
+    <Compile Include="validator\PaperValidator.cs" />
+    <Compile Include="validator\PatentValidator.cs" />
+    <Compile Include="validator\PublisherValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epam.Library.BlContracts\Epam.Library.BlContracts.csproj">
+      <Project>{0ae1f335-9a3c-41ee-84f1-6924d0b842f5}</Project>
+      <Name>Epam.Library.BlContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Library.DalContracts\Epam.Library.DalContracts.csproj">
+      <Project>{EC985709-FB2B-4A5B-8B67-E667F340798A}</Project>
+      <Name>Epam.Library.DalContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Library.DataAccessLayer\Epam.Library.DataAccessLayer.csproj">
+      <Project>{9726F3D0-C5C6-407D-A029-6ADF98355E44}</Project>
+      <Name>Epam.Library.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Library.Entities\Epam.Library.Entities.csproj">
+      <Project>{bd619f5b-c59e-40e7-92c1-cafbbe019bfe}</Project>
+      <Name>Epam.Library.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.Library.Utility\Epam.Library.Utility.csproj">
+      <Project>{79b61dce-bde9-4b0f-8846-884e5cc24976}</Project>
+      <Name>Epam.Library.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{f902b259-efb2-4a8e-ac99-664ec8f021f2}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

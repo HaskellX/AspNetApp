@@ -1,0 +1,18 @@
+﻿@model LibraryItem
+
+    @if (Model is Book)
+    {
+        @Html.Partial("_ShowBookPartial", Model);
+    }
+        else if (Model is PaperIssue)
+    {
+        @Html.Partial("_ShowPaperIssuePartial", Model);
+    }
+    else if (Model is Patent)
+    {
+        @Html.Partial("_ShowPatentPartial", Model);
+    }
+    else
+    {
+        <text>Unexpected error. Your workstation and your memory will be eliminated.</text>
+    }

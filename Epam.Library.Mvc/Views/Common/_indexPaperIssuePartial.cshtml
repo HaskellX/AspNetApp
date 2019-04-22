@@ -1,0 +1,6 @@
+﻿@model Entities.PaperIssue
+
+<th>@Html.ActionLink(Model.Paper.Name, "Item", new { id = Model.Id }, null)</th>
+<th>№@Model.IssueNumber/@Model.YearOfPublishing</th>
+<th>@(Model.Paper.Issn ?? string.Empty)</th>
+<th>@Model.NumberOfPages</th>

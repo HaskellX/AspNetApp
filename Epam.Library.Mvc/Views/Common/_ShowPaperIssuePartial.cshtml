@@ -1,0 +1,20 @@
+﻿@model PaperIssue
+Идентификационный номер в базе данных @Model.Id
+<br />
+ISSN газеты @Model.Paper.Issn
+<br />
+Название газеты @Model.Paper.Name
+<br />
+Город издания @Model.CityOfPublishing
+<br />
+Дата выпуска номера @Model.DateOfIssue
+<br />
+Номер издания @Model.IssueNumber
+<br />
+Заметка @Model.Note
+<br />
+Количество страниц @Model.NumberOfPages
+<br />
+Имя издателя @Model.Publisher.PublisherName
+<br /><br /><br /><br /><br />
+@Html.ActionLink("Получить все выпуски данной газеты", "PaperIssuesByPaper", new { id = Model.Paper.Id }, null)

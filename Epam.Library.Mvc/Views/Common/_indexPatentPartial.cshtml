@@ -1,0 +1,5 @@
+﻿@model Entities.Patent
+<th>@Html.ActionLink(Model.Name, "Item", new { id = Model.Id }, null)</th>
+<th>от @Model.DateOfPublication</th>
+<th>@Model.RegNumber</th>
+<th>@Model.NumberOfPages</th>

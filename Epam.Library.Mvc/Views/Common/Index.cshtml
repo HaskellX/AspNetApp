@@ -1,0 +1,83 @@
+﻿@model Epam.Library.Mvc.Models.PaginationVM
+@{
+    ViewBag.Title = "Index";
+}
+<body>
+    <h2>Index</h2>
+    <table>
+
+        @foreach (var item in this.Model.Items)
+        {
+            if (item is Book)
+            {
+                <tr>
+                    @Html.Partial("_indexBookPartial", item);
+                    <td>
+                        @Html.ActionLink("ИЗМЕНИТЬ", "Edit", "Book", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("УДАЛИТЬ", "Delete", "Common", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+            else if (item is PaperIssue)
+            {
+                <tr>
+                    @Html.Partial("_indexPaperIssuePartial", item)
+                    <td>
+                        @Html.ActionLink("ИЗМЕНИТЬ", "Edit", "PaperIssue", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("УДАЛИТЬ", "Delete", "Common", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+            else if (item is Patent)
+            {
+                <tr>
+                    @Html.Partial("_indexPatentPartial", item)
+                    <td>
+                        @Html.ActionLink("ИЗМЕНИТЬ", "Edit", "Patent", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("УДАЛИТЬ", "Delete", "Common", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <text>Unexpected error. Your workstation and your memory will be eliminated.</text>
+            }
+
+
+
+        }
+    </table>
+
+
+    @if (Model.CurrentPage > 4)
+    {
+        Html.ActionLink("1", "Index", "Common", new { id = 1 }, new { @class = "btn btn-danger" });
+    }
+
+    @for (int i = Model.CurrentPage - 3; i <= Model.CurrentPage; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            <text>@Model.CurrentPage</text>
+        }
+        if (i > 1)
+        {
+            Html.ActionLink(i.ToString(), "Index", "Common", new { id = i.ToString() }, new { @class = "btn btn-danger" });
+        }
+    }
+
+    @for (int i = Model.CurrentPage; i < Model.CurrentPage + 3; i++)
+    {
+        if (i < Model.TotalNumberOfPages)
+        {
+            Url.Action("Index", "Common", new { id = i.ToString() });
+            Html.ActionLink(i.ToString(), "Index", "Common", new { id = i }, new { @class = "btn btn-danger" });
+            Html.ActionLink(i.ToString(), "Index", "Common", new RouteValueDictionary { { "id", "1" } }, new { @class = "btn btn-danger" });
+        }
+    }
+
+    @if (Model.TotalNumberOfPages - 3 < Model.CurrentPage)
+    {
+        Html.ActionLink(Model.TotalNumberOfPages.ToString(), "Index", "Common", new { id = Model.TotalNumberOfPages }, new { @class = "btn btn-danger" });
+    }
+</body>

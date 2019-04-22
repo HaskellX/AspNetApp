@@ -1,0 +1,23 @@
+﻿@model LibraryItem
+@{
+    ViewBag.Title = "Card";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@{ 
+    if(Model is Book)
+    {
+        Html.Partial("Card", (Book)Model);
+    }
+
+    else if(Model is Patent)
+    {
+        Html.Partial("Card", (Patent)Model);
+    }
+
+    else if (Model is PaperIssue)
+    {
+        Html.Partial("Card", (PaperIssue)Model);
+    }
+}
+

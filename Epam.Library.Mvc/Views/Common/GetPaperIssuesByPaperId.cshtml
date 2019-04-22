@@ -1,0 +1,8 @@
+﻿@model IEnumerable<PaperIssue>
+
+Выпуски газеты:
+@foreach(var item in Model)
+{
+    <th>@item.Paper.Name</th>  
+    <th>@Html.ActionLink(item.IssueNumber.ToString(), "Item", new { id = item.Id }, null)</th>
+}
